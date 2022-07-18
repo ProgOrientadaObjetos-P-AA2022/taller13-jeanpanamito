@@ -33,8 +33,14 @@ public class Principal {
         tvs.add(t2);
         tvs.add(t3);
         System.out.println("-----------------");
-        System.out.printf("%.2f\n", t1.totalPrecioTvs(tvs));
-        System.out.printf("%s\n", t1.listaMarcasVendidas(tvs));
+          OperacionesTelevisores operacionesTelevisores = new OperacionesTelevisores();
+      
+        operacionesTelevisores.establecerTelevisor(tvs);
+        operacionesTelevisores.televisorMasCaro();
+        operacionesTelevisores.establecertotalPrecioTvs();
+        System.out.printf("%s",operacionesTelevisores);
+        
+       
 
     }
 }

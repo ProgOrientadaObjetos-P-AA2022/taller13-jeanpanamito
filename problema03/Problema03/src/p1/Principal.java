@@ -7,8 +7,8 @@ package p1;
 
 import java.util.ArrayList;
 import p2.Estudiante;
-import p3.Correo;
-import p3.DominioGmail;
+import p3.*;
+
 
 /**
  *
@@ -40,7 +40,15 @@ public class Principal {
         c.establecerUserName(e.obtenerUserName());
         c.establecerCorreo();
         
+        DominioGobierno dominioGobierno= new DominioGobierno();
+        dominioGobierno.establecerDominio("gobiernoec.gob");
+        Correo gobierno = new Correo();
+        gobierno.establecerDominio(dominioGobierno);
+        c.establecerUserName(e.obtenerUserName());
+        c.establecerCorreo();
+        
         lista.add(c);
+        lista.add(gobierno);
         
         e.establecerCorreos(lista);
         

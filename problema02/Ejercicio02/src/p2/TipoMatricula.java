@@ -5,8 +5,10 @@
  */
 package p2;
 
+import java.util.ArrayList;
 import p1.MatriculaCampamento;
 import p1.MatriculaColegio;
+import p1.Matricula;
 
 /**
  *
@@ -14,36 +16,42 @@ import p1.MatriculaColegio;
  */
 public class TipoMatricula {
     private double promedioMatriculas;
-    private MatriculaCampamento campamento;
-    private MatriculaColegio colegio;
-    // private MatriculaEscuela escuela;
-    // private MatriculaJardin jardin;
-    // private MatriculaMaternal maternal;
-    // private MatriculaMaternal maternal2;
+    private ArrayList<Matricula> matriculas; // puedo tener muchos tipos de Transporte
     
-    public void establecerMatriculaCampamento(MatriculaCampamento c){
-        campamento = c;
+    
+    public void establecerMatriculas(ArrayList<Matricula> m){
+        matriculas = m;
     }
     
-    public void establecerMatriculaColegio(MatriculaColegio c){
-        colegio = c;
-    }
+    public ArrayList<Matricula> obtenerMatriculas(){
+        return matriculas;
+    };
     
-    public MatriculaCampamento obtenerMatriculaCampamento(){
-        return campamento;
-    }
     
-    public MatriculaColegio obtenerMatriculaColegio(){
-        return colegio;
-    }
     
-    public void establecerPromedioTarifas(){
-        promedioMatriculas = (obtenerMatriculaCampamento().obtenerTarifa() + 
-                obtenerMatriculaColegio().obtenerTarifa())/2;
+    public void establecerPromedioMatriculas(){
+        double suma = 0;
+        for (int i = 0; i < obtenerMatriculas().size(); i++) {
+            suma = suma + obtenerMatriculas().get(i).obtenerTarifa();
+        }
+        promedioMatriculas = suma / obtenerMatriculas().size();
         
     }
     
-    public double obtenerPromedioTarifas(){
+    public double obtenerPromedioMatriculas(){
         return promedioMatriculas;
     }
+
+    @Override
+    public String toString() {
+        String cadena = String.format("\t\tReporte Matriculas");
+       
+            cadena = String.format("%s\n"
+                    + "%s "
+                    + "\nPromedio Matriculas: %.2f ",
+                    cadena, obtenerMatriculas(),
+                    obtenerPromedioMatriculas());
+        return cadena;
+    }
+   
 }

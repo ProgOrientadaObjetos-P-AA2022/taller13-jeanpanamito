@@ -9,10 +9,11 @@ package p1;
  *
  * @author reroes
  */
-public class MatriculaJardin {
+public class MatriculaJardin extends Matricula{
     private double tarifa;
     
         
+    @Override
     public void establecerTarifa(){
         // tarifa = costo desayunos + costo libros + costo paseos
         tarifa = 50.2 + 140.2 + 40;

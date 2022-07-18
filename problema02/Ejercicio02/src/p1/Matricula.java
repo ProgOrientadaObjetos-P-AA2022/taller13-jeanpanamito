@@ -9,16 +9,11 @@ package p1;
  *
  * @author reroes
  */
-public class MatriculaEscuela extends Matricula{
-    private double tarifa;
+public abstract class Matricula {
+    protected double tarifa;
     
-    @Override
-    public void establecerTarifa(){
-        // tarifa = costo libros + costo deportes + costo folletos + 
-        //          costo uniformes
-        tarifa = 50.2 + 40.2 + 140.2 + 200.4;
-    }
-        
+    public abstract void establecerTarifa();
+    
     public double obtenerTarifa(){
         return tarifa;
     }

@@ -9,7 +9,7 @@ package p3;
  *
  * @author reroes
  */
-public class DominioGmail implements Dominio{
+public class DominioUTPL implements Dominio{
     private String dominio;
     
     @Override
